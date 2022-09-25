@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Prj.Net6.WebApp_MVCUOW</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Prj.Net6.Infrastructure\Prj.Net6.Infrastructure.csproj" />
+    <ProjectReference Include="..\Prj.Net6.Service\Prj.Net6.Service.csproj" />
+  </ItemGroup>
+
+</Project>

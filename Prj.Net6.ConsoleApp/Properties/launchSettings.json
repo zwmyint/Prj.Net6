@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Prj.Net6.ConsoleApp": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:2276;http://localhost:2277"
+    }
+  }
+}

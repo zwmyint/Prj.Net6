@@ -1,0 +1,55 @@
+https://www.kafle.io/tutorials/asp-dot-net/create-project
+
+we will have following projects
+
+----
+Core
+
+Entities
+Interfaces
+
+----
+Infrastructure
+
+Repositories
+Web API Clients
+File System Accessors
+Email/SMS Sending
+EF(Core) DbContext
+Other Services
+
+----
+Service
+
+Business Layers
+
+----
+Web UI/EndPoints
+
+ASP.NET MVC
+ASP.NET Razor Pages
+ASP.NET WebAPI
+
+
+-------------
+We are going to implement Clean/Onion architecture. Few advantages are :
+
+Independent of Frameworks.
+Testable
+Independent of Database
+Independent of any external agency
+
+
+-------------
+Migrations
+(at Infra Prj)
+Create migration file for EventContext
+
+Add-Migration InitialCreate -Context PrjNet6DBContext -OutputDir Migrations\SqlServerMigrations
+Peform migration to create table for identity models (i.e. ApplicationDbContext)
+
+(at Razor Prj)
+Update-Database -Context ApplicationDbContext
+Peform migration to create table for Event and EventBooking models
+
+Update-Database -Context PrjNet6DbContext
