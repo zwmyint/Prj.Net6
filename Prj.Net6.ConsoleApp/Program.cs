@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Prj.Net6.ConsoleApp;
+
 Console.WriteLine("Hello, World!");
 
 Console.Write("Enter Radius : ");
@@ -13,8 +15,43 @@ Console.ReadKey();
 ArrForeachloop();
 Console.ReadKey();
 
+//
+Class1 class1 = new Class1();
+class1.Sum();
+Console.ReadKey();
+
+// ienumerable-iqueryable-icollection-dotnet
+//IEnumerableLoopExample(new List<int> { 1, 2, 3, 4, 5 });
+//var evenNumbers = YieldEvenNumbersExample();
+//foreach (var number in evenNumbers)
+//{
+//    Console.WriteLine(number);
+//}
+
+//var numbers = GetNumbersFromDb();
+//var evenNumbers = numbers.Where(number => number % 2 == 0)
+//                         .ToList();
+
+//foreach (var number in evenNumbers)
+//{
+//    Console.WriteLine(number);
+//}
+
+var numbers = new List<int> { 1, 2, 3, 5 };
+ICollectionExample(numbers);
+foreach (var number in numbers)
+{
+    Console.WriteLine(number);
+}
+
+Console.ReadKey();
+//
 
 
+
+
+
+//////////////////////////////////////////
 
 // Method Name --> GetCircleArea()
 // Return Type ---> double
@@ -52,3 +89,42 @@ static void ArrForeachloop()
     }
     Console.ReadLine();
 }
+
+//
+//static void IEnumerableLoopExample(IEnumerable<int> numbers)
+//{
+//    foreach (var number in numbers)
+//    {
+//        if (number % 2 == 0)
+//        {
+//            Console.WriteLine($"{number} is even");
+//        }
+//    }
+//}
+
+//static IEnumerable<int> YieldEvenNumbersExample()
+//{
+//    for (var i = 1; i <= 5; i++)
+//    {
+//        if (i % 2 == 0)
+//        {
+//            yield return i;
+//        }
+//    }
+//}
+
+//static IQueryable<int> GetNumbersFromDb()
+//{
+//    return new[] { 1, 2, 3, 4, 5 }.AsQueryable();
+//}
+
+static void ICollectionExample(ICollection<int> numbers)
+{
+    numbers.Add(100);
+
+    if (numbers.Contains(1))
+    {
+        numbers.Remove(1);
+    }
+}
+//
