@@ -1,7 +1,7 @@
 ﻿using Serilog.Core;
 using Serilog.Events;
 
-namespace Prj.Net6.WebApp_API.Sinks
+namespace Prj.Net6.API.Sinks
 {
     public class CustomSink : ILogEventSink
     {

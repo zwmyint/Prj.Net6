@@ -1,7 +1,7 @@
 ﻿using Serilog.Configuration;
 using Serilog;
 
-namespace Prj.Net6.WebApp_API.Sinks
+namespace Prj.Net6.API.Sinks
 {
     public static class CustomSinkExtensions
     {

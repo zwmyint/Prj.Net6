@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Prj.Net6.WebApp_API.Attributes
+namespace Prj.Net6.API.Attributes
 {
     [AttributeUsage(validOn: AttributeTargets.Class)]
     public class ApiKeyAttribute : Attribute, IAsyncActionFilter

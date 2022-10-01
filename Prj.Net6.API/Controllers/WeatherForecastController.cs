@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Prj.Net6.WebApp_APIFileUpload.Controllers
+namespace Prj.Net6.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

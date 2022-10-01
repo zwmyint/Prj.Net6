@@ -21,6 +21,11 @@ namespace Prj.Net6.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<IEnumerable<Product>> Find2(Expression<Func<Product, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<Product>> GetAll()
         {
             throw new NotImplementedException();

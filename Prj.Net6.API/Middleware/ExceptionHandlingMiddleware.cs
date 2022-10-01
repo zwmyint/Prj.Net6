@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
 
-namespace Prj.Net6.WebApp_API.Middleware
+namespace Prj.Net6.API.Middleware
 {
     public class ExceptionHandlingMiddleware
     {

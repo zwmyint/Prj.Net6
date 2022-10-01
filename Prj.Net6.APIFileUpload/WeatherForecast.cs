@@ -1,4 +1,4 @@
-namespace Prj.Net6.WebApp_API
+namespace Prj.Net6.APIFileUpload
 {
     public class WeatherForecast
     {

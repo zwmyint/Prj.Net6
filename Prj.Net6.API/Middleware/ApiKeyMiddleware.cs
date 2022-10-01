@@ -1,9 +1,9 @@
-﻿namespace Prj.Net6.WebApp_API.Middleware
+﻿namespace Prj.Net6.API.Middleware
 {
     public class ApiKeyMiddleware
     {
         private readonly RequestDelegate _next;
-        private const string APIKEYNAME = "ApiKey";
+        private const string APIKEYNAME = "XApiKey";
         public ApiKeyMiddleware(RequestDelegate next)
         {
             _next = next;

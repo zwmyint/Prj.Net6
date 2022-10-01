@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
-namespace Prj.Net6.WebApp_API.Controllers
+namespace Prj.Net6.APIFileUpload.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -12,29 +11,23 @@ namespace Prj.Net6.WebApp_API.Controllers
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastController> logger;
+        private readonly ILogger<WeatherForecastController> _logger;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
-           this.logger = logger;
+            _logger = logger;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            logger.LogDebug("Inside GetWeatherForecast endpoint");
-
-            //throw new Exception("Failed to retrieve data");
-            var response = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            }).ToArray();
-
-            logger.LogDebug($"The response for the get weather forecast is {JsonConvert.SerializeObject(response)}");
-            
-            return response;
+            })
+            .ToArray();
         }
     }
 }

@@ -42,6 +42,11 @@ namespace Prj.Net6.Infrastructure.Repositories
             return dbSet.Where(expression);
         }
 
+        public async Task<IEnumerable<T>> Find2(Expression<Func<T, bool>> predicate)
+        {
+            return await dbSet.Where(predicate).ToListAsync();
+        }
+
         public async Task<IEnumerable<T>> GetAll()
         {
             return await dbSet.ToListAsync();
