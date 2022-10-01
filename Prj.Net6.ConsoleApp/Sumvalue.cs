@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prj.Net6.ConsoleApp
 {
-    internal class Class1
+    internal class Sumvalue
     {
         public void Sum()
         {

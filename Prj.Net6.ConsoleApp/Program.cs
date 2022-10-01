@@ -16,7 +16,7 @@ ArrForeachloop();
 Console.ReadKey();
 
 //
-Class1 class1 = new Class1();
+Sumvalue class1 = new Sumvalue();
 class1.Sum();
 Console.ReadKey();
 
@@ -45,7 +45,19 @@ foreach (var number in numbers)
 }
 
 Console.ReadKey();
+
+
 //
+Logger logger = new Logger();
+await logger.Log("Write to log ...");
+
+Console.ReadKey();
+
+
+
+
+
+
 
 
 
