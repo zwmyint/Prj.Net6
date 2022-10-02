@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.Logging;
 using Prj.Net6.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Prj.Net6.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly PrjNet6DbContext _context;
+        private IDbContextTransaction _transaction;
         private readonly ILogger _logger;
         
         public IProductRepository Products { get; private set; }
@@ -33,8 +35,25 @@ namespace Prj.Net6.Infrastructure.Repositories
             return await _context.SaveChangesAsync();
         }
 
+        //
+        public async Task<int> CompleteAsync(CancellationToken cancellationToken = default)
+        {
+            return await _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task BeginTransactionAsync(CancellationToken cancellationToken = default)
+        {
+            _transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
+        }
+
+        public async Task CommitTransactionAsync(CancellationToken cancellationToken = default)
+        {
+            await _transaction.CommitAsync(cancellationToken);
+        }
+
         public void Dispose()
         {
+            _transaction?.Dispose();
             _context.Dispose();
         }
     }

@@ -11,8 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{38292FE6-94E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X", "X", "{68D97111-C322-4B28-8F34-9D750A350E84}"
 	ProjectSection(SolutionItems) = preProject
+		note-Hangfire.txt = note-Hangfire.txt
 		note.txt = note.txt
 		SqlQuery.sql = SqlQuery.sql
+		SqlQuery_FileDetails.sql = SqlQuery_FileDetails.sql
 		SqlQuery_PostFile.sql = SqlQuery_PostFile.sql
 		SqlQuery_Task.sql = SqlQuery_Task.sql
 	EndProjectSection
@@ -44,6 +46,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.APIFileUpload", "Prj.Net6.APIFileUpload\Prj.Net6.APIFileUpload.csproj", "{7734301E-3B71-48EC-911D-5D306665408D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.API", "Prj.Net6.API\Prj.Net6.API.csproj", "{ADB1BBF5-6570-4436-84BA-3924B7603888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.ConsoleAppRabbitMQ", "Prj.Net6.ConsoleAppRabbitMQ\Prj.Net6.ConsoleAppRabbitMQ.csproj", "{11A0AE70-64BA-4CAE-B16E-7054D3268ECA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.APIRabbitMQ", "Prj.Net6.APIRabbitMQ\Prj.Net6.APIRabbitMQ.csproj", "{52182E9C-FE7B-42E3-9101-CEB1C4CF471E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +105,14 @@ Global
 		{ADB1BBF5-6570-4436-84BA-3924B7603888}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADB1BBF5-6570-4436-84BA-3924B7603888}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADB1BBF5-6570-4436-84BA-3924B7603888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11A0AE70-64BA-4CAE-B16E-7054D3268ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11A0AE70-64BA-4CAE-B16E-7054D3268ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11A0AE70-64BA-4CAE-B16E-7054D3268ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11A0AE70-64BA-4CAE-B16E-7054D3268ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52182E9C-FE7B-42E3-9101-CEB1C4CF471E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52182E9C-FE7B-42E3-9101-CEB1C4CF471E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52182E9C-FE7B-42E3-9101-CEB1C4CF471E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52182E9C-FE7B-42E3-9101-CEB1C4CF471E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +130,8 @@ Global
 		{39A39AD8-F105-42C2-99EA-58E5921DC40A} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
 		{7734301E-3B71-48EC-911D-5D306665408D} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
 		{ADB1BBF5-6570-4436-84BA-3924B7603888} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
+		{11A0AE70-64BA-4CAE-B16E-7054D3268ECA} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
+		{52182E9C-FE7B-42E3-9101-CEB1C4CF471E} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E89B9F72-B418-4CD1-AD68-60021B896B64}

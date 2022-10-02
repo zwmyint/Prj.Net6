@@ -12,6 +12,11 @@ namespace Prj.Net6.Core.Interfaces
         IProjectRepository Projects { get; }
         Task<int> CompletedAsync();
 
+        //
+        Task BeginTransactionAsync(CancellationToken cancellationToken = default);
+        Task CommitTransactionAsync(CancellationToken cancellationToken = default);
+        Task<int> CompleteAsync(CancellationToken cancellationToken = default);
+
     }
 
 }
