@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X", "X", "{68D97111-C322-4B
 		SqlQuery_FileDetails.sql = SqlQuery_FileDetails.sql
 		SqlQuery_PostFile.sql = SqlQuery_PostFile.sql
 		SqlQuery_Task.sql = SqlQuery_Task.sql
+		SqlQuery_uall.sql = SqlQuery_uall.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{36904275-FAE2-44D0-93E0-2A6CFB66C0B8}"

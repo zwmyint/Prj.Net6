@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Newtonsoft.Json;
 using Prj.Net6.ConsoleApp;
+using System.Runtime.Serialization;
 
 Console.WriteLine("Hello, World!");
 
@@ -54,8 +56,62 @@ await logger.Log("Write to log ...");
 Console.ReadKey();
 
 
+//
+var car = new Car()
+{
+    Company = "Ford",
+    ModelNo = "ABC123",
+    WheelType = new ChromeWheel()
+    {
+        Material = "Rubber",
+        HasChromePlating = false
+    }
+};
+
+// FaultySerialization
+//string serializedCar = JsonConvert.SerializeObject(car);
+//Car deserializedCar = JsonConvert.DeserializeObject<Car>(serializedCar);
+//Console.WriteLine(serializedCar);
+//Console.WriteLine("Type of WheelType " + deserializedCar.WheelType.GetType());
+//var chromeWheel = deserializedCar.WheelType as ChromeWheel;
+//Console.WriteLine("HasChromePlating " + chromeWheel?.HasChromePlating);
 
 
+// InsecureSerialization
+//string serializedCar = JsonConvert.SerializeObject(car, new JsonSerializerSettings()
+//{
+//    TypeNameHandling = TypeNameHandling.All
+//});
+
+//Car deserializedCar = JsonConvert.DeserializeObject<Car>(serializedCar, new JsonSerializerSettings()
+//{
+//    TypeNameHandling = TypeNameHandling.Auto
+//});
+//Console.WriteLine(serializedCar);
+//Console.WriteLine("Type of WheelType " + deserializedCar.WheelType.GetType());
+//var chromeWheel = deserializedCar.WheelType as ChromeWheel;
+//Console.WriteLine("HasChromePlating " + chromeWheel?.HasChromePlating);
+
+// SecureSerialization
+string serializedCar = JsonConvert.SerializeObject(car, new JsonSerializerSettings()
+{
+    TypeNameHandling = TypeNameHandling.All,
+    SerializationBinder = new CustomSerializationBinder()
+});
+Car deserializedCar = JsonConvert.DeserializeObject<Car>(serializedCar, new JsonSerializerSettings()
+{
+    TypeNameHandling = TypeNameHandling.Auto,
+    SerializationBinder = new CustomSerializationBinder()
+});
+Console.WriteLine(serializedCar);
+Console.WriteLine("Type of WheelType " + deserializedCar.WheelType.GetType());
+var chromeWheel = deserializedCar.WheelType as ChromeWheel;
+Console.WriteLine("HasChromePlating " + chromeWheel?.HasChromePlating);
+
+Console.ReadKey();
+
+
+//
 
 
 

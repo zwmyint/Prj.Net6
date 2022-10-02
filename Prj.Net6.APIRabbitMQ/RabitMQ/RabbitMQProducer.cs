@@ -34,6 +34,14 @@ namespace Prj.Net6.APIRabbitMQ.RabitMQ
 
 
 // https://blog.devops.dev/rabbitmq-message-queue-using-net-core-6-web-api-c0fcfa72169c
+
+//Step 8)
+
+//Open the following URL to open the RabbitMQ dashboard on the port we set while running docker
+
+//http://localhost:15672/
+
+
 //Step 14)
 
 //Install Rabbitmq docker file using the following command(Note - docker desktop is in running mode
