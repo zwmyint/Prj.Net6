@@ -131,7 +131,7 @@ namespace Prj.Net6.API.Controllers
         // Hangfire
 
         //
-        public void SendWelcomeEmail(string text)
+        private void SendWelcomeEmail(string text)
         {
             Console.WriteLine(text);
 

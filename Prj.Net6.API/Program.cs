@@ -38,11 +38,13 @@ var logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 
+// added for AppSettingConnection // Dependency Injection
+builder.Services.AddPersistence(builder.Configuration);
+
 //
 //builder.Services.AddSendGrid(options => options.ApiKey = builder.Configuration["SendGridApiKey"]);
 
 //Hangfire
-//builder.Services.AddHangfire(x => x.UseSqlServerStorage(@"Data Source=MAXIMUS-XI\\SQLDEV2017;Initial Catalog=PrjNet6DB;User Id=sa; Password=ERPfegha1730; Integrated Security=True;Pooling=False"));
 builder.Services.AddHangfire(x => x
     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
     .UseSimpleAssemblyNameTypeSerializer()
@@ -88,6 +90,7 @@ builder.Services.AddSwaggerGen(c =>
         { key, new List<string>() }
     };
     c.AddSecurityRequirement(requirement);
+    c.ResolveConflictingActions(x => x.First());
 });
 
 // added for MemoryCache
