@@ -44,3 +44,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+// another
+// https://jasonwatmore.com/post/2021/12/20/net-6-basic-authentication-tutorial-with-example-api
