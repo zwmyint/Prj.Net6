@@ -15,3 +15,23 @@ CREATE TABLE [dbo].[FileDetails](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+
+
+CREATE TABLE UploadTb
+(
+
+FieldId int not null primary key identity(1,1),
+FileName varchar(50),
+FileType int,
+SavedFile nvarchar(max)
+
+)
+
+CREATE PROC [dbo].[uspUpload]
+@filename varchar(50), @filetype int, @imageData nvarchar(max)
+AS
+BEGIN
+INSERT INTO [dbo].[UploadTb](FileName, FileType, SavedFile)
+VALUES(@filename, @filetype, @imageData)
+set nocount off
+END
