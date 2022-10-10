@@ -28,6 +28,12 @@ var config = configuration.Build();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// CORS configuration
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy =>
+        policy.AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowAnyOrigin()));
 
 // added (Zaw)
 var logger = new LoggerConfiguration()
@@ -116,6 +122,11 @@ var k2 = settings.KeyTwo;
 var k3 = settings.KeyThree.Message;
 var k = config.GetRequiredSection("Settings").Get<AppSettings>().KeyOne;
 
+//
+var host = builder.Configuration.GetSection("EmailOptions:Host").Value;
+var port = int.Parse(builder.Configuration.GetSection("EmailOptions:Port").Value);
+var sender = builder.Configuration.GetSection("EmailOptions:Sender").Value;
+
 var app = builder.Build();
 
 //-------------------------------------
@@ -154,6 +165,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors();
 
 app.Run();
 

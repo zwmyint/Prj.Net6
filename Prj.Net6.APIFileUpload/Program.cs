@@ -4,6 +4,8 @@ using Prj.Net6.APIFileUpload;
 using Prj.Net6.APIFileUpload.Data;
 using Prj.Net6.APIFileUpload.Entities;
 using Prj.Net6.APIFileUpload.Services;
+using Serilog;
+using Serilog.Formatting.Json;
 
 var configuration = new ConfigurationBuilder()
      .SetBasePath(Directory.GetCurrentDirectory())
@@ -14,6 +16,14 @@ var config = configuration.Build();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+const string logPath = "./logs/webapi-.log";
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File(new JsonFormatter(), logPath, rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -21,6 +21,8 @@ namespace Prj.Net6.APIFileUpload.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogInformation("Weather Forecast | {wfforday}", DateTime.Now.ToString());
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

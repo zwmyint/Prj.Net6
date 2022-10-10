@@ -20,7 +20,7 @@ var client = new RestClient(url);
 var request = new RestRequest(url, Method.Get);
 RestResponse response = await client.ExecuteAsync(request);
 
-if (!response.IsSuccessful)
+if (response.IsSuccessful)
 {
     //Logic for handling unsuccessful response
 
@@ -46,7 +46,7 @@ var bodyy = JsonConvert.SerializeObject(body);
 request.AddBody(bodyy, "application/json");
 RestResponse response2 = await client.ExecuteAsync(request);
 
-if(!response.IsSuccessful)
+if(response.IsSuccessful)
 {
     //Logic for handling unsuccessful response
 

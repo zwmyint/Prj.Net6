@@ -18,5 +18,6 @@ namespace Prj.Net6.APIFileUpload.Data
         }
 
         public DbSet<FileDetails> FileDetails { get; set; }
+        public DbSet<UserPwd> UserPWD { get; set; }
     }
 }
