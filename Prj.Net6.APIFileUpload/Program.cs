@@ -37,6 +37,10 @@ builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.Configure<ReaderModel>(config.GetSection("ConnectionStrings"));
 builder.Services.AddScoped<IUploadService, FileUploadService>();
 
+// userpwd
+builder.Services.AddScoped<IUserService, UserService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
