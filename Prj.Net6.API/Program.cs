@@ -50,7 +50,7 @@ builder.Services.AddPersistence(builder.Configuration);
 //
 //builder.Services.AddSendGrid(options => options.ApiKey = builder.Configuration["SendGridApiKey"]);
 
-//Hangfire
+// Add Hangfire services.
 builder.Services.AddHangfire(x => x
     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
     .UseSimpleAssemblyNameTypeSerializer()
@@ -63,7 +63,7 @@ builder.Services.AddHangfire(x => x
         UseRecommendedIsolationLevel = true,
         DisableGlobalLocks = true
     }));
-
+// Add the processing server as IHostedService
 builder.Services.AddHangfireServer();
 
 

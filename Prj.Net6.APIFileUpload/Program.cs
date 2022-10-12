@@ -18,11 +18,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 const string logPath = "./logs/webapi-.log";
 var logger = new LoggerConfiguration()
-    .WriteTo.Console()
+    //.WriteTo.Console()
     .WriteTo.File(new JsonFormatter(), logPath, rollingInterval: RollingInterval.Day)
     .CreateLogger();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
+
+logger.Information("Args: {Args}", args);
 
 
 builder.Services.AddControllers();

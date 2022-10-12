@@ -27,23 +27,24 @@ if (response.IsSuccessful)
     var Output = response.Content;
     //var objList = JsonSerializer.Deserialize<ObjList>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
     //var objDetails = JsonSerializer.Deserialize<ObjDetails>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
+    Console.WriteLine(Output.ToString());
 }
 
+Console.WriteLine("--------------------------------------");
 Console.ReadKey();
 
 //
 var url2 = "https://reqres.in/api/users";
 
 var request2 = new RestRequest(url2, Method.Post);
-request.AddHeader("Content-Type", "application/json");
+request2.AddHeader("Content-Type", "application/json");
 var body = new
 {
     name = "Ajay Kumar",
     job = "Developer"
 };
 var bodyy = JsonConvert.SerializeObject(body);
-request.AddBody(bodyy, "application/json");
+request2.AddBody(bodyy, "application/json");
 RestResponse response2 = await client.ExecuteAsync(request);
 
 if(response.IsSuccessful)
@@ -51,6 +52,7 @@ if(response.IsSuccessful)
     //Logic for handling unsuccessful response
 
     var output2 = response.Content;
+    Console.WriteLine(output2.ToString());
     
 }
 
