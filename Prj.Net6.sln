@@ -65,6 +65,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prj.Net6.APIDPWithSP", "Prj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.APIBasicAuth2", "Prj.Net6.APIBasicAuth2\Prj.Net6.APIBasicAuth2.csproj", "{1D7292B5-3E33-4E45-8B43-7638A9FA243E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.WebApp-MVCDatatable", "Prj.Net6.WebApp-MVCDatatable\Prj.Net6.WebApp-MVCDatatable.csproj", "{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{1D7292B5-3E33-4E45-8B43-7638A9FA243E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D7292B5-3E33-4E45-8B43-7638A9FA243E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D7292B5-3E33-4E45-8B43-7638A9FA243E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +177,7 @@ Global
 		{1D119C19-0205-4C23-A221-851DE102C810} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
 		{787DB97E-D31E-4EEA-A802-58AA4824B4C2} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
 		{1D7292B5-3E33-4E45-8B43-7638A9FA243E} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
+		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E89B9F72-B418-4CD1-AD68-60021B896B64}
