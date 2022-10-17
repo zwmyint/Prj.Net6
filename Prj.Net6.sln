@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X", "X", "{68D97111-C322-4B
 		SqlQuery_Task.sql = SqlQuery_Task.sql
 		SqlQuery_uall.sql = SqlQuery_uall.sql
 		SqlQuery_UserPWD.sql = SqlQuery_UserPWD.sql
+		SuperHeorController.txt = SuperHeorController.txt
+		ToDoItem.txt = ToDoItem.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{36904275-FAE2-44D0-93E0-2A6CFB66C0B8}"
@@ -66,6 +68,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.APIBasicAuth2", "Prj.Net6.APIBasicAuth2\Prj.Net6.APIBasicAuth2.csproj", "{1D7292B5-3E33-4E45-8B43-7638A9FA243E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.WebApp-MVCDatatable", "Prj.Net6.WebApp-MVCDatatable\Prj.Net6.WebApp-MVCDatatable.csproj", "{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.ConsoleAppJson", "Prj.Net6.ConsoleAppJson\Prj.Net6.ConsoleAppJson.csproj", "{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +157,10 @@ Global
 		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,6 +186,7 @@ Global
 		{787DB97E-D31E-4EEA-A802-58AA4824B4C2} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
 		{1D7292B5-3E33-4E45-8B43-7638A9FA243E} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
 		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
+		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E89B9F72-B418-4CD1-AD68-60021B896B64}

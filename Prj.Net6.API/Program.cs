@@ -99,6 +99,10 @@ builder.Services.AddSwaggerGen(c =>
     c.ResolveConflictingActions(x => x.First());
 });
 
+// added for AutoMapper
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+
 // added for MemoryCache
 builder.Services.AddMemoryCache();
 

@@ -1,0 +1,55 @@
+{
+	"appname": "this is name",
+	"allVersions": [],
+	"downloadableVersions": [
+		{
+			"major": 4,
+			"minor": 0,
+			"profile": "client",
+			"servicePack": null,
+			"url": "http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=5765d7a8-7722-4888-a970-ac39b33fd8ab"
+		},
+		{
+			"major": 4,
+			"minor": 0,
+			"profile": "full",
+			"servicePack": null,
+			"url": "http://www.microsoft.com/downloads/details.aspx?FamilyID=9cfb2d51-5ff4-4491-b0e5-b386f32c0992&displaylang=en"
+		},
+		{
+			"major": 3,
+			"minor": 5,
+			"profile": "client",
+			"servicePack": 1,
+			"url": "http://www.microsoft.com/downloads/details.aspx?FamilyId=8CEA6CD1-15BC-4664-B27D-8CEBA808B28B&displaylang=en"
+		},
+		{
+			"major": 3,
+			"minor": 5,
+			"profile": "full",
+			"servicePack": 1,
+			"url": "http://go.microsoft.com/fwlink/?LinkId=124150"
+		},
+		{
+			"major": 3,
+			"minor": 0,
+			"profile": "full",
+			"servicePack": 1,
+			"url": "http://www.microsoft.com/downloads/details.aspx?FamilyId=10CC340B-F857-4A14-83F5-25634C3BF043&displaylang=en"
+		},
+		{
+			"major": 2,
+			"minor": 0,
+			"profile": "full",
+			"servicePack": 2,
+			"url": "http://www.microsoft.com/downloads/details.aspx?familyid=5B2C0358-915B-4EB5-9B1D-10E506DA9D0F&displaylang=en"
+		},
+		{
+			"major": 1,
+			"minor": 1,
+			"profile": "full",
+			"servicePack": 1,
+			"url": "http://www.microsoft.com/downloads/details.aspx?FamilyID=a8f5654f-088e-40b2-bbdb-a83353618b38&DisplayLang=en"
+		}
+	]
+}

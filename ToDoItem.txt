@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <!--First Installed Jquery into your application-->
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ulEmployees = $('#ulEmployees');
+            $('#btnGetData').click(function () {
+                // Get the username & password from textboxes
+                var username = $('#txtUsername').val();
+                var password = $('#txtPassword').val();
+                $.ajax({
+                    type: 'GET',
+                    // Make sure to change the port number to
+                    // where you have the service
+                    // running on your local machine
+                    url: 'http://localhost:63228/api/Employees',
+                    dataType: 'json',
+                    // Specify the authentication header
+                    // btoa() method encodes a string to Base64
+                    headers: {
+                        'Authorization': 'Basic ' + btoa(username + ':' + password)
+                    },
+                    success: function (data) {
+                        ulEmployees.empty();
+                        $.each(data, function (index, val) {
+                            var EmployeeDetails = 'Name = '+ val.Name + ' Gender = ' + val.Gender + ' Dept = ' + val.Dept + ' Salary = ' + val.Salary;
+                            ulEmployees.append('<li>' + EmployeeDetails + '</li>')
+                        });
+                    },
+                    complete: function (jqXHR) {
+                        if (jqXHR.status == '401') {
+                            ulEmployees.empty();
+                            ulEmployees.append('<li style="color:red">'
+                                + jqXHR.status + ' : ' + jqXHR.statusText + '</li>')
+                        }
+                    }
+                });
+            });
+            $('#btnClear').click(function () {
+                ulEmployees.empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    Username : <input type="text" id="txtUsername" />
+    Password : <input type="password" id="txtPassword" />
+    <br /><br />
+    <input id="btnGetData" type="button" value="Get Employees" />
+    <input id="btnClear" type="button" value="Clear" />
+    <ul id="ulEmployees"></ul>
+</body>
+</html>
+---------------------------------
+<ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+---------------------------------
+
+var MyAllowSpecificOrigins = "AnotherPolicy";
+
+// Add services to the container.
+
+// added
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy(MyAllowSpecificOrigins,
+//        policy =>
+//        {
+//            policy.WithOrigins("https://localhost:7153", "http://localhost:5153")
+//            .AllowAnyHeader()
+//            .AllowAnyMethod();
+//        });
+//});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+       builder =>
+       {
+           builder.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+       });
+});
+
+// added
+builder.Services.AddDbContext<TodoContext>(opt =>
+    opt.UseInMemoryDatabase("TodoList"));
+  
+  
+// added
+app.UseCors(
+  options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader()
+      );
+
+---------------------------------
+public class TodoContext : DbContext
+    {
+        public TodoContext(DbContextOptions<TodoContext> options)
+            : base(options)
+        {
+        }
+        public DbSet<TodoItem> TodoItems { get; set; } = null!;
+    }
+
+public class TodoItem
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public bool IsComplete { get; set; }
+        public string Secret { get; set; }
+    }
+
+public class TodoItemDTO
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public bool IsComplete { get; set; }
+    }
+
+---------------------------------
+public class ProductController : ControllerBase
+    {
+        private List<Product> _products = new List<Product>
+        {
+            new Product { Id = 1, Name = "Milo" },
+            new Product { Id = 2, Name = "Tim Tams" },
+            new Product { Id = 3, Name = "Dettol Original" },
+            new Product { Id = 4, Name = "Cisco IP Phone" }
+        };
+
+        //
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_products);
+        }
+
+        //
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var product = _products.Find(x => x.Id == id);
+            if (product == null)
+                return NotFound();
+            return Ok(product);
+        }
+
+
+    }
+---------------------------------
+
+public class TodoitemsController : Controller
+    {
+
+        private readonly ILogger<TodoitemsController> _logger;
+        private readonly TodoContext _context;
+
+        public TodoitemsController(ILogger<TodoitemsController> logger, TodoContext context)
+        {
+            _logger = logger;
+            _context = context;
+        }
+
+        // GET: api/TodoItems
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodoItems()
+        {
+            return await _context.TodoItems
+                .Select(x => ItemToDTO(x))
+                .ToListAsync();
+        }
+
+        // GET: api/TodoItems/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TodoItemDTO>> GetTodoItem(long id)
+        {
+            var todoItem = await _context.TodoItems.FindAsync(id);
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+            return ItemToDTO(todoItem);
+        }
+
+        // PUT: api/TodoItems/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        //public async Task<IActionResult> UpdateTodoItem(long id, TodoItemDTO todoItemDTO)
+        public async Task<ActionResult<TodoItemDTO>> UpdateTodoItem(long id, TodoItemDTO todoItemDTO)
+        {
+            if (id != todoItemDTO.Id)
+            {
+                return BadRequest();
+            }
+            var todoItem = await _context.TodoItems.FindAsync(id);
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+            todoItem.Name = todoItemDTO.Name;
+            todoItem.IsComplete = todoItemDTO.IsComplete;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException) when (!TodoItemExists(id))
+            {
+                return NotFound();
+            }
+
+            //return NoContent();
+            return CreatedAtAction(
+                nameof(GetTodoItem),
+                new { id = todoItem.Id },
+                ItemToDTO(todoItem));
+        }
+
+        // POST: api/TodoItems
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<TodoItemDTO>> CreateTodoItem(TodoItemDTO todoItemDTO)
+        {
+            var todoItem = new TodoItem
+            {
+                IsComplete = todoItemDTO.IsComplete,
+                Name = todoItemDTO.Name
+            };
+            _context.TodoItems.Add(todoItem);
+
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(
+                nameof(GetTodoItem),
+                new { id = todoItem.Id },
+                ItemToDTO(todoItem));
+        }
+
+        // DELETE: api/TodoItems/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTodoItem(long id)
+        {
+            var todoItem = await _context.TodoItems.FindAsync(id);
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+            _context.TodoItems.Remove(todoItem);
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+
+        private bool TodoItemExists(long id)
+        {
+            return _context.TodoItems.Any(e => e.Id == id);
+        }
+
+        private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
+            new TodoItemDTO
+            {
+                Id = todoItem.Id,
+                Name = todoItem.Name,
+                IsComplete = todoItem.IsComplete
+            };
+
+
+        //
+    }
+

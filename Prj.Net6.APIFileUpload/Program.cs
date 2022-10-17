@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Prj.Net6.APIFileUpload;
 using Prj.Net6.APIFileUpload.Data;
 using Prj.Net6.APIFileUpload.Entities;
@@ -51,6 +52,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+#region Static File Setup
+app.UseFileServer(new FileServerOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
+    RequestPath = "/StaticFiles",
+    EnableDefaultFiles = true
+});
+#endregion
 
 app.UseHttpsRedirection();
 

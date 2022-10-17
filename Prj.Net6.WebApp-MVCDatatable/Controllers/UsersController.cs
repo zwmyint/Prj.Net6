@@ -66,6 +66,15 @@ namespace Prj.Net6.WebApp_MVCDatatable.Controllers
             return Ok(jsonData);
         }
 
+        [HttpGet("getUsers")]
+        public List<User2> getUsers()
+        {
+            List<User2> users2 = new List<User2>();
+
+            users2 = _context.tbl_users_fordt2.Select(c => c).ToList();
+            return users2;
+        }
+
         //
     }
 }
