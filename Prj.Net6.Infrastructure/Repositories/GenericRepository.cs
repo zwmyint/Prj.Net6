@@ -37,15 +37,30 @@ namespace Prj.Net6.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        public async Task<bool> AddRange(IEnumerable<T> entities)
         {
-            return dbSet.Where(expression);
+            try
+            {
+                await dbSet.AddRangeAsync(entities);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            
         }
 
-        public async Task<IEnumerable<T>> Find2(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
         {
-            return await dbSet.Where(predicate).ToListAsync();
+            return await dbSet.Where(expression).ToListAsync();
         }
+
+        //public async Task<IEnumerable<T>> Find2(Expression<Func<T, bool>> predicate)
+        //{
+        //    return await dbSet.Where(predicate).ToListAsync();
+        //}
 
         public async Task<IEnumerable<T>> GetAll()
         {
@@ -68,13 +83,31 @@ namespace Prj.Net6.Infrastructure.Repositories
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
 
-        public Task<bool> Update(T entity)
+        public bool RemoveRange(IEnumerable<T> entities)
+        {
+            try
+            {
+                dbSet.RemoveRange(entities);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            
+        }
+
+        public async Task<bool> Update(T entity)
         {
             throw new NotImplementedException();
         }
+
+
     }
 
 }

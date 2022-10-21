@@ -11,8 +11,8 @@ namespace Prj.Net6.Core.Interfaces
     {
         Task<T> GetById(Guid id);
         Task<IEnumerable<T>> GetAll();
-        IEnumerable<T> Find(Expression<Func<T, bool>> expression);
-        Task<IEnumerable<T>> Find2(Expression<Func<T, bool>> predicate);
+        Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
+        //Task<IEnumerable<T>> Find2(Expression<Func<T, bool>> predicate);
 
         Task<bool> Add(T entity);
         Task<bool> Remove(Guid id);

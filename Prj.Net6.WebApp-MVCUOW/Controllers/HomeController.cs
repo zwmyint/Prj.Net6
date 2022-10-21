@@ -15,6 +15,7 @@ namespace Prj.Net6.WebApp_MVCUOW.Controllers
 
         public IActionResult Index()
         {
+            //
             return View();
         }
 

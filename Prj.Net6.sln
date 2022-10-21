@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X", "X", "{68D97111-C322-4B
 	ProjectSection(SolutionItems) = preProject
 		note-Hangfire.txt = note-Hangfire.txt
 		note.txt = note.txt
+		RabbitMQ.txt = RabbitMQ.txt
 		SqlQuery.sql = SqlQuery.sql
 		SqlQuery_FileDetails.sql = SqlQuery_FileDetails.sql
 		SqlQuery_members DP SP.sql = SqlQuery_members DP SP.sql
@@ -70,6 +71,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.WebApp-MVCDatatable", "Prj.Net6.WebApp-MVCDatatable\Prj.Net6.WebApp-MVCDatatable.csproj", "{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.ConsoleAppJson", "Prj.Net6.ConsoleAppJson\Prj.Net6.ConsoleAppJson.csproj", "{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prj.Net6.ConsoleApp2", "Prj.Net6.ConsoleApp2\Prj.Net6.ConsoleApp2.csproj", "{B30DFDAE-DD60-4734-9A62-5605D061497A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +164,10 @@ Global
 		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30DFDAE-DD60-4734-9A62-5605D061497A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30DFDAE-DD60-4734-9A62-5605D061497A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30DFDAE-DD60-4734-9A62-5605D061497A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30DFDAE-DD60-4734-9A62-5605D061497A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -187,6 +194,7 @@ Global
 		{1D7292B5-3E33-4E45-8B43-7638A9FA243E} = {38292FE6-94E3-4D4C-B65F-3D9564077771}
 		{43A5DAB4-F33C-4603-BFE9-6EDFD36E9746} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
 		{FC9EBDCE-705F-4FA3-BDB5-62FBC3EA83FC} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
+		{B30DFDAE-DD60-4734-9A62-5605D061497A} = {8C51A21B-195B-47CB-AFF5-5437CA9EB804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E89B9F72-B418-4CD1-AD68-60021B896B64}

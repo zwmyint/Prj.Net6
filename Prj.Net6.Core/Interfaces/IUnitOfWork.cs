@@ -10,6 +10,12 @@ namespace Prj.Net6.Core.Interfaces
     {
         IProductRepository Products { get; }
         IProjectRepository Projects { get; }
+
+        //
+        IPersonRepository Persons { get; }
+
+
+        //
         Task<int> CompletedAsync();
 
         //

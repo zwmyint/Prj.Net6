@@ -18,15 +18,23 @@ namespace Prj.Net6.Infrastructure.Repositories
         public IProductRepository Products { get; private set; }
         public IProjectRepository Projects { get; private set; }
 
-        public UnitOfWork(
-            PrjNet6DbContext context,
-            ILoggerFactory logger)
+        //
+        public IAddressRepository Address { get; private set; }
+        public IEmailRepository Email { get; private set; }
+        public IPersonRepository Persons { get; private set; }
+
+
+        public UnitOfWork(PrjNet6DbContext context, ILoggerFactory logger)
         {
             _context = context;
             _logger = logger.CreateLogger("logs");
 
             //Products = new ProductRepository(_context, _logger);
             Projects = new ProjectRepository(_context, _logger);
+
+            //Address = new AddressRepository(_context, _logger);
+            //Email = new EmailRepository(_context, _logger);
+            Persons = new PersonRepository(_context, _logger);
 
         }
 

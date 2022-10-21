@@ -3,6 +3,7 @@ using Prj.Net6.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,12 @@ namespace Prj.Net6.Infrastructure
 
         // Project App
         public virtual DbSet<Project> Projects { get; set; }
+
+        //
+        public virtual DbSet<Person> Person { get; set; }
+        public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<Email> Email { get; set; }
+
 
 
         //// Task App
